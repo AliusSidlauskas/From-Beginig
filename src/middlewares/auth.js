@@ -12,6 +12,8 @@ export const auth = (req, res, next) => {
       return res.status(401).json({ message: "bad auth" });
     }
 
+    req.body.userId = decoded.user_id;
+
     return next();
   });
 };

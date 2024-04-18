@@ -6,7 +6,7 @@ import UserModel from "../models/user.js";
 export const SIGN_IN = async (req, res) => {
   try {
     const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync("req.body.password", salt);
+    const hash = bcrypt.hashSync(req.body.password, salt);
 
     const user = new UserModel({
       id: uuidv4(),
